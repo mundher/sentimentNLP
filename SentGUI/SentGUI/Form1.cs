@@ -36,6 +36,7 @@ namespace SentGUI
         private void button1_Click(object sender, EventArgs e)
         {
             var txt = richTextBox1.Text.Replace("\n", " ").Replace("\r", "");
+            txt = Encoding.ASCII.GetString(Encoding.Convert(Encoding.UTF8, Encoding.ASCII, Encoding.UTF8.GetBytes(txt)));
             cmd.StandardInput.WriteLine(txt);
             cmd.StandardInput.Flush();
             var result = cmd.StandardOutput.ReadLine();

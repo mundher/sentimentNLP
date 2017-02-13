@@ -66,11 +66,14 @@ def loadMovieReviews():
 if __name__ == '__main__':
     import sys
     analyzer = SentimentAnalyzer()
-    while True:
-        data = raw_input()
-        if analyzer.analyze(data):
-            print 'Positive'
-        else:
-            print 'Negative'
-        sys.stdout.flush()
+    try:
+        while True:
+            data = raw_input()
+            if analyzer.analyze(data):
+                print 'Positive'
+            else:
+                print 'Negative'
+            sys.stdout.flush()
+    except Exception as e:
+        print e
 
